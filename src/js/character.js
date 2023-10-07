@@ -1,11 +1,11 @@
 export default class Character {
-  constructor(name, attac, defence) {
+  constructor(name, type) {
     if (name.length < 2 || name.length > 10) {
       throw new Error('The length of the hero\'s name should be from 2 to 10 characters');
     }
 
-    const type = this.constructor.name;
-    if (!['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'].includes(type)) {
+    const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
+    if (!types.includes(type)) {
       throw new Error('Incorrect hero type');
     }
 
@@ -13,8 +13,8 @@ export default class Character {
     this.type = type;
     this.health = 100;
     this.level = 1;
-    this.attack = attac;
-    this.defence = defence;
+    this.attack = undefined;
+    this.defence = undefined;
   }
 
   levelUp() {
